@@ -1,0 +1,110 @@
+/* TENDENCIAS */
+
+.trends .title-container h2 {
+    background-color: var(--planeta-geek-celeste);
+    color: var(--black);
+    font-size: var(--xlg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem 0;
+    /* position: relative; */
+}
+
+.trends .title-container h2:before {
+    top: 50;
+    left: 2.5rem;
+    display: inline-block;
+    content: "";
+    width: 0.8rem;
+    height: 6rem;
+    transform: skewX(-10deg);
+    background: var(--planeta-geek-shadow-celeste);
+    position: absolute;
+    border-right: 3px solid var(--nav-left-borders);
+}
+
+.trends .title-container p {
+    flex-grow: 1;
+    border-bottom: 0.3rem solid var(--planeta-geek-celeste);
+}
+
+
+.trending-articles__container article {
+    width: 30rem;
+    min-height: 45rem;
+    background-color: var(--background-article);
+    margin: 4rem auto 0;
+    padding-bottom: 1rem;
+}
+
+.trending-articles__container div div:first-child {
+    width: 30rem;
+    height: 20rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.trending-articles__container div div:first-child img {
+    width: 100%;
+    height: auto;
+    transition: 0.8s ease all;
+}
+
+.trending-articles__container div div:first-child img:hover {
+    width: 120%;
+    height: auto;
+}
+
+.trending-articles__container h3 {
+    width: 100%;
+    color: var(--planeta-geek-celeste-border);
+    margin-top: 1rem;
+    font-size: var(--lg);
+    padding: 1rem 2rem 0;
+}
+
+.trending-articles__container p {
+    width: 100%;
+    color: var(--white);
+    font-weight: 300;
+    margin-top: 1rem;
+    font-size: var(--md);
+    padding: 0 2rem 0;
+    line-height: 2.5rem;
+}
+
+.trending-articles__container a {
+    width: 100%;
+    color: var(--planeta-geek-celeste-border);
+    text-decoration: none;
+}
+
+@media (min-width: 700px) {
+    .trending-articles__container {
+      width: 69rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      justify-content: center;
+      margin: 1rem auto 0;
+  }
+  }
+  
+  @media (min-width: 1060px) {
+    .trends {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+    
+    .trends .title-container h2:before {
+        left: 6.5rem;
+    }
+    
+    .trending-articles__container {
+        width: 96rem;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
