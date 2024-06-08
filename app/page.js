@@ -1,7 +1,8 @@
 'use client';
 
-import Image from "next/image";
+// import Image from "next/image";
 // import styles from "./page.module.css";
+import Header from "./LoggedInHeader/LoggedInHeader";
 import Trends from "./Trends/Trends";
 
 import { useState } from "react";
@@ -76,6 +77,7 @@ export default function Home() {
 
   return (
     <main>
+      <Header/>
       <Trends 
         trendTitle1={trendTitle1}
         setTrendTitle1={setTrendTitle1}

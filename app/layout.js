@@ -9,8 +9,8 @@ const baiJamjuree = Bai_Jamjuree(
 );
 
 export const metadata = {
-  title: "Planeta Geek",
-  description: "Planeta Geek Web Site",
+  title: "Planeta Geek Website Editor",
+  description: "A private web app where the content creator, owner of the branch Planeta Geek, can loging to update images, titles and texts of the articles existing in his public website.",
   robots: {
     index: true,
     follow: true,

@@ -93,18 +93,18 @@
   }
   }
   
-  @media (min-width: 1060px) {
-    .trends {
-        padding-left: 5rem;
-        padding-right: 5rem;
-    }
-    
-    .trends .title-container h2:before {
-        left: 6.5rem;
-    }
-    
-    .trending-articles__container {
-        width: 96rem;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
+@media (min-width: 1060px) {
+.trends {
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+.trends .title-container h2:before {
+    left: 6.5rem;
+}
+
+.trending-articles__container {
+    width: 96rem;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+}
