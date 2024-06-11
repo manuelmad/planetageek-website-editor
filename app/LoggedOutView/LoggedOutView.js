@@ -1,5 +1,6 @@
 import Image from "next/image";
 import './loggedOutView.css';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function LoggedOutView({
     displayLoggedOutView,
@@ -7,10 +8,34 @@ export default function LoggedOutView({
     setDisplayHeader,
     setDisplayTrends
 }) {
-    const showEditor = ()=> {
-        setDisplayLoggedOutView({display:"none"});
-        setDisplayHeader({display:"grid"});
-        setDisplayTrends({display:"block"});
+
+    const logIn = ()=> {
+        const auth = getAuth();
+        const email = document.getElementById('user_email').value;
+        const password = document.getElementById('user_password').value;
+    
+        signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in
+            if(userCredential) {
+                const user = userCredential.user;
+                setDisplayLoggedOutView({display:"none"});
+                setDisplayHeader({display:"grid"});
+                setDisplayTrends({display:"block"});
+                console.log('Bienvenido '+ user);
+            } else {
+                console.log('el usuario no está registrado');
+            }
+
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
+        // setDisplayLoggedOutView({display:"none"});
+        // setDisplayHeader({display:"grid"});
+        // setDisplayTrends({display:"block"});
     }
     return (
         <section className="logged-out-container" style={displayLoggedOutView}>
@@ -34,7 +59,7 @@ export default function LoggedOutView({
                     <input type="password" id="user_password"></input>
                     </p>
                     <p className="login-btn-container">
-                        <button id="login_btn" onClick={showEditor}>Log In</button>
+                        <button id="login_btn" onClick={logIn}>Log In</button>
                     </p>
                 </div>
             </article>
