@@ -4,6 +4,7 @@
 // import styles from "./page.module.css";
 import Header from "./LoggedInHeader/LoggedInHeader";
 import Trends from "./Trends/Trends";
+import LoggedOutView from "./LoggedOutView/LoggedOutView";
 
 import { useState } from "react";
 import { useEffect } from "react";
@@ -13,6 +14,7 @@ import { collection, onSnapshot, doc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
 
 export default function Home() {
+  // States to the info in the website
   const [trendTitle1, setTrendTitle1] = useState("");
   const [trendTitle2, setTrendTitle2] = useState("");
   const [trendTitle3, setTrendTitle3] = useState("");
@@ -22,6 +24,11 @@ export default function Home() {
   const [imgUrl1, setImgUrl1] = useState("");
   const [imgUrl2, setImgUrl2] = useState("");
   const [imgUrl3, setImgUrl3] = useState("");
+
+  // States to the different views
+  const [displayLoggedOutView, setDisplayLoggedOutView] = useState({display:"flex"});
+  const [displayHeader, setDisplayHeader] = useState({display:"none"});
+  const [displayTrends, setDisplayTrends] = useState({display:"none"});
 
   useEffect(()=> {
     // Get the collection 'trends' from firebase
@@ -77,8 +84,24 @@ export default function Home() {
 
   return (
     <main>
-      <Header/>
+      <LoggedOutView
+        displayLoggedOutView={displayLoggedOutView}
+        setDisplayLoggedOutView={setDisplayLoggedOutView}
+
+        setDisplayHeader={setDisplayHeader}
+        setDisplayTrends={setDisplayTrends}
+      />
+      <Header
+        displayHeader={displayHeader}
+        setDisplayHeader={setDisplayHeader}
+
+        setDisplayTrends={setDisplayTrends}
+        setDisplayLoggedOutView={setDisplayLoggedOutView}
+      />
       <Trends 
+        displayTrends={displayTrends}
+        setDisplayTrends={setDisplayTrends}
+
         trendTitle1={trendTitle1}
         setTrendTitle1={setTrendTitle1}
         trendTitle2={trendTitle2}

@@ -3,6 +3,8 @@ import Image from "next/image";
 import './trends.css';
 
 export default function Trends({
+    displayTrends,
+    setDisplayTrends,
     trendTitle1,
     setTrendTitle1,
     trendTitle2,
@@ -22,9 +24,8 @@ export default function Trends({
     imgUrl3,
     setImgUrl3,
 }) {
-
     return(
-        <section className="trends" id="trends">
+        <section className="trends" id="trends" style={displayTrends}>
             <div className="title-container">
                 <h2>TENDENCIAS</h2> 
                 <p></p>
