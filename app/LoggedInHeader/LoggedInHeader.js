@@ -12,18 +12,15 @@ export default function Header({
     const logOut = ()=> {
         const auth = getAuth();
         signOut(auth).then(() => {
-        // Sign-out successful.
-        setDisplayHeader({display:"none"});
-        setDisplayTrends({display:"none"});
-        setDisplayLoggedOutView({display:"flex"});
-        console.log('Se ha cerrado sesión exitosamente');
+            // Sign-out successful.
+            setDisplayHeader({display:"none"});
+            setDisplayTrends({display:"none"});
+            setDisplayLoggedOutView({display:"flex"});
+            console.log('Se ha cerrado sesión exitosamente');
         }).catch((error) => {
-        // An error happened.
-        console.log(error);
+            // An error happened.
+            console.log(error);
         });
-        // setDisplayHeader({display:"none"});
-        // setDisplayTrends({display:"none"});
-        // setDisplayLoggedOutView({display:"flex"});
     }
     return(
         <header className="header" style={displayHeader}>

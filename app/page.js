@@ -61,6 +61,7 @@ export default function Home() {
           });
         })
         .catch((error) => {console.log('error:', error)});
+        
         getDownloadURL(ref(storage, 'trends/trend2.png'))
         .then(async url => {
           setImgUrl2(url);
@@ -69,6 +70,7 @@ export default function Home() {
           });
         })
         .catch((error) => {console.log('error:', error)});
+        
         getDownloadURL(ref(storage, 'trends/trend3.png'))
         .then(async url => {
           setImgUrl3(url);
@@ -77,7 +79,6 @@ export default function Home() {
           });
         })
         .catch((error) => {console.log('error:', error)});
-
     });
 
   },[]);

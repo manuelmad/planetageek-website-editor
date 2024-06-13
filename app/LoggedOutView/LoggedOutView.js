@@ -16,7 +16,7 @@ export default function LoggedOutView({
     
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Signed in
+            // Logged in
             if(userCredential) {
                 const user = userCredential.user;
                 setDisplayLoggedOutView({display:"none"});
@@ -26,16 +26,12 @@ export default function LoggedOutView({
             } else {
                 console.log('el usuario no está registrado');
             }
-
-            // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
+            console.log(errorCode, errorMessage);
         });
-        // setDisplayLoggedOutView({display:"none"});
-        // setDisplayHeader({display:"grid"});
-        // setDisplayTrends({display:"block"});
     }
     return (
         <section className="logged-out-container" style={displayLoggedOutView}>

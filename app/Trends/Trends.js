@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 import Image from "next/image";
 import './trends.css';
 
@@ -24,6 +24,7 @@ export default function Trends({
     imgUrl3,
     setImgUrl3,
 }) {
+
     return(
         <section className="trends" id="trends" style={displayTrends}>
             <div className="title-container">
@@ -42,8 +43,8 @@ export default function Trends({
                             />
                         </div>
                         <div>
-                            <h3>{trendTitle1}</h3>
-                            <p>{trendText1}</p>
+                            <h3 contentEditable className="trend1-h3">{trendTitle1}</h3>
+                            <p contentEditable>{trendText1}</p>
                         </div>
                     </div>
                 </article>
@@ -58,8 +59,8 @@ export default function Trends({
                             />
                         </div>
                         <div>
-                            <h3>{trendTitle2}</h3>
-                            <p>{trendText2}</p>
+                            <h3 contentEditable className="trend2-h3">{trendTitle2}</h3>
+                            <p contentEditable>{trendText2}</p>
                         </div>
                     </div>
                 </article>
@@ -74,8 +75,8 @@ export default function Trends({
                             />
                         </div>
                         <div>
-                            <h3>{trendTitle3}</h3>
-                            <p>{trendText3}</p>
+                            <h3 contentEditable className="trend3-h3">{trendTitle3}</h3>
+                            <p contentEditable>{trendText3}</p>
                         </div>
                     </div>
                 </article>
