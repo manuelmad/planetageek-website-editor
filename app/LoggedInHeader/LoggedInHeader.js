@@ -7,7 +7,8 @@ export default function Header({
     setDisplayHeader,
     displayTrends,
     setDisplayTrends,
-    setDisplayLoggedOutView
+    setDisplayLoggedOutView,
+    setDisplayFooter
 }) {
     const logOut = ()=> {
         const auth = getAuth();
@@ -15,6 +16,7 @@ export default function Header({
             // Sign-out successful.
             setDisplayHeader({display:"none"});
             setDisplayTrends({display:"none"});
+            setDisplayFooter({display:"none"});
             setDisplayLoggedOutView({display:"flex"});
             console.log('Se ha cerrado sesión exitosamente');
         }).catch((error) => {

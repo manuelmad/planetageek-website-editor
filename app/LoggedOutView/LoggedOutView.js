@@ -6,7 +6,8 @@ export default function LoggedOutView({
     displayLoggedOutView,
     setDisplayLoggedOutView,
     setDisplayHeader,
-    setDisplayTrends
+    setDisplayTrends,
+    setDisplayFooter
 }) {
 
     const logIn = ()=> {
@@ -22,6 +23,8 @@ export default function LoggedOutView({
                 setDisplayLoggedOutView({display:"none"});
                 setDisplayHeader({display:"grid"});
                 setDisplayTrends({display:"block"});
+                setDisplayTrends({display:"block"});
+                setDisplayFooter({display:"block"});
                 console.log('Bienvenido '+ user);
             } else {
                 console.log('el usuario no está registrado');

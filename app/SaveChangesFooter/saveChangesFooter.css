@@ -1,0 +1,20 @@
+footer {
+    width: 100%;
+    height: 8rem;
+    background-color: var(--header-font-color);
+    text-align: center;
+    align-content: center;
+}
+
+#save_changes_btn {
+    width: 9.15rem;
+    height: 5rem;
+    border-radius: 0.5rem;
+    font-size: var(--md);
+}
+
+@media (min-width: 700px) {
+    #save_changes_btn {
+        width: 11rem;
+    }
+}

@@ -5,6 +5,7 @@
 import Header from "./LoggedInHeader/LoggedInHeader";
 import Trends from "./Trends/Trends";
 import LoggedOutView from "./LoggedOutView/LoggedOutView";
+import Footer from "./SaveChangesFooter/SaveChangesFooter";
 
 import { useState } from "react";
 import { useEffect } from "react";
@@ -29,6 +30,7 @@ export default function Home() {
   const [displayLoggedOutView, setDisplayLoggedOutView] = useState({display:"flex"});
   const [displayHeader, setDisplayHeader] = useState({display:"none"});
   const [displayTrends, setDisplayTrends] = useState({display:"none"});
+  const [displayFooter, setDisplayFooter] = useState({display:"none"});
 
   useEffect(()=> {
     // Get the collection 'trends' from firebase
@@ -91,6 +93,7 @@ export default function Home() {
 
         setDisplayHeader={setDisplayHeader}
         setDisplayTrends={setDisplayTrends}
+        setDisplayFooter={setDisplayFooter}
       />
       <Header
         displayHeader={displayHeader}
@@ -98,6 +101,7 @@ export default function Home() {
 
         setDisplayTrends={setDisplayTrends}
         setDisplayLoggedOutView={setDisplayLoggedOutView}
+        setDisplayFooter={setDisplayFooter}
       />
       <Trends 
         displayTrends={displayTrends}
@@ -121,6 +125,10 @@ export default function Home() {
         setImgUrl2={setImgUrl2}
         imgUrl3={imgUrl3}
         setImgUrl3={setImgUrl3}
+      />
+      <Footer
+        displayFooter={displayFooter}
+        setDisplayFooter={setDisplayFooter}
       />
     </main>
   );
