@@ -38,6 +38,11 @@ header img {
     height: 5rem;
     border-radius: 0.5rem;
     font-size: var(--md);
+    border: none;
+}
+
+#logout-btn:active {
+    background-color: var(--red-notifications);
 }
 
 @media (min-width: 700px) {

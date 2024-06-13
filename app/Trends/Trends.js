@@ -44,7 +44,7 @@ export default function Trends({
                         </div>
                         <div>
                             <h3 contentEditable className="trend1-h3">{trendTitle1}</h3>
-                            <p contentEditable>{trendText1}</p>
+                            <p contentEditable className="trend1-text">{trendText1}</p>
                         </div>
                     </div>
                 </article>
@@ -60,7 +60,7 @@ export default function Trends({
                         </div>
                         <div>
                             <h3 contentEditable className="trend2-h3">{trendTitle2}</h3>
-                            <p contentEditable>{trendText2}</p>
+                            <p contentEditable className="trend2-text">{trendText2}</p>
                         </div>
                     </div>
                 </article>
@@ -76,7 +76,7 @@ export default function Trends({
                         </div>
                         <div>
                             <h3 contentEditable className="trend3-h3">{trendTitle3}</h3>
-                            <p contentEditable>{trendText3}</p>
+                            <p contentEditable className="trend3-text">{trendText3}</p>
                         </div>
                     </div>
                 </article>

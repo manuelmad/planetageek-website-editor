@@ -11,10 +11,15 @@ footer {
     height: 5rem;
     border-radius: 0.5rem;
     font-size: var(--md);
+    border: none;
+}
+
+#save_changes_btn:active {
+    background-color: var(--planeta-geek-green);
 }
 
 @media (min-width: 700px) {
     #save_changes_btn {
-        width: 11rem;
+        width: 15rem;
     }
 }
