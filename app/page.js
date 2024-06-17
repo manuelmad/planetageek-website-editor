@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { db } from "./firebase/firebase-config";
 import { collection, onSnapshot, doc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function Home() {
   // States to the info in the website
@@ -23,6 +24,9 @@ export default function Home() {
   const [imgUrl1, setImgUrl1] = useState("");
   const [imgUrl2, setImgUrl2] = useState("");
   const [imgUrl3, setImgUrl3] = useState("");
+  const [imgName1, setImgName1] = useState("");
+  const [imgName2, setImgName2] = useState("");
+  const [imgName3, setImgName3] = useState("");
 
   // States to the different views
   const [displayLoggedOutView, setDisplayLoggedOutView] = useState({display:"flex"});
@@ -53,16 +57,61 @@ export default function Home() {
         setTrendText3(data[2].data().text);
 
         // Getting the url of all images in firebasestorage and updating the corresponding state, as well as sending that url to fibase database
-        getDownloadURL(ref(storage, 'trends/trend1.png'))
+        let ref1;
+        const listRef1 = ref(storage, 'trends/trend1');
+        const listRef2 = ref(storage, 'trends/trend2');
+        const listRef3 = ref(storage, 'trends/trend3');
+
+        // listAll(listRef1)
+        // .then((res) => {
+        //   res.items.forEach((itemRef) => {
+        //     // All the items under listRef.
+        //     console.log('itemRef',itemRef);
+        //     console.log('itemRef',itemRef.name);
+        //     setImgName1(itemRef.name);
+        //     ref1 = ref(storage,`trends/trend1/${imgName1}`);
+        //   });
+        // }).catch((error) => {
+        //   // Uh-oh, an error occurred!
+        //   console.log('error',error);
+        // });
+
+        // listAll(listRef2)
+        // .then((res) => {
+        //   res.items.forEach((itemRef) => {
+        //     // All the items under listRef.
+        //     console.log('itemRef',itemRef);
+        //     setImgName2(itemRef.name);
+        //   });
+        // }).catch((error) => {
+        //   // Uh-oh, an error occurred!
+        //   console.log('error',error);
+        // });
+
+        // listAll(listRef3)
+        // .then((res) => {
+        //   res.items.forEach((itemRef) => {
+        //     // All the items under listRef.
+        //     console.log('itemRef',itemRef);
+        //     setImgName3(itemRef.name);
+        //   });
+        // }).catch((error) => {
+        //   // Uh-oh, an error occurred!
+        //   console.log('error',error);
+        // });
+        
+        getDownloadURL(ref(storage,`trends/trend1/trend1.png`))
         .then(async url => {
           setImgUrl1(url);
+          // console.log('parent',ref1.parent);
+          
           await updateDoc(doc(db, 'trends', 'trend1'), {
             img: url
           });
         })
         .catch((error) => {console.log('error:', error)});
         
-        getDownloadURL(ref(storage, 'trends/trend2.png'))
+        getDownloadURL(ref(storage, 'trends/trend2/trend2.png'))
         .then(async url => {
           setImgUrl2(url);
           await updateDoc(doc(db, 'trends', 'trend2'), {
@@ -71,7 +120,7 @@ export default function Home() {
         })
         .catch((error) => {console.log('error:', error)});
         
-        getDownloadURL(ref(storage, 'trends/trend3.png'))
+        getDownloadURL(ref(storage, 'trends/trend3/trend3.png'))
         .then(async url => {
           setImgUrl3(url);
           await updateDoc(doc(db, 'trends', 'trend3'), {
@@ -80,6 +129,23 @@ export default function Home() {
         })
         .catch((error) => {console.log('error:', error)});
     });
+
+    // Check state of auth and display the correponding view
+    const auth = getAuth();
+    onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        setDisplayLoggedOutView({display:"none"});
+        setDisplayHeader({display:"grid"});
+        setDisplayTrends({display:"block"});
+        setDisplayTrends({display:"block"});
+        setDisplayFooter({display:"block"});
+      } else {
+        setDisplayHeader({display:"none"});
+        setDisplayTrends({display:"none"});
+        setDisplayFooter({display:"none"});
+        setDisplayLoggedOutView({display:"flex"});
+      }
+    })
 
   },[]);
 

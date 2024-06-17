@@ -36,7 +36,9 @@
     width: 10rem;
     height: 4rem;
     margin-top: 3rem;
-    border: none;
+    /* border: none; */
+    border-radius: 0.5rem;
+    background-color: var(--planeta-geek-celeste);
 }
 
 #login_btn:active {
