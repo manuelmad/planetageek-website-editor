@@ -11,8 +11,12 @@ footer {
     height: 5rem;
     border-radius: 0.5rem;
     font-size: var(--md);
-    border: none;
+    border: 0.2rem solid var(--black);
     cursor: pointer;
+}
+
+#save_changes_btn:hover {
+    border: 0.2rem solid var(--red-notifications);
 }
 
 #save_changes_btn:active {

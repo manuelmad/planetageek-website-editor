@@ -64,6 +64,7 @@
     margin-top: 1rem;
     font-size: var(--lg);
     padding: 1rem 2rem 0;
+    cursor: url('/pencil.svg'), auto;
 }
 
 .trending-articles__container p {
@@ -74,6 +75,12 @@
     font-size: var(--md);
     padding: 0 2rem 0;
     line-height: 2.5rem;
+    cursor: url('/pencil.svg'), auto;
+}
+
+.trending-articles__container h3:hover, .trending-articles__container p:hover {
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .trending-articles__container a {

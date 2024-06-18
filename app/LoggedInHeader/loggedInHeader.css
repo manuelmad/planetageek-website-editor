@@ -28,7 +28,7 @@ header img {
 
 .logout-btn-container {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: center;
     padding-right: 0.5rem;
 }
@@ -38,8 +38,12 @@ header img {
     height: 5rem;
     border-radius: 0.5rem;
     font-size: var(--md);
-    border: none;
+    border: 0.2rem solid var(--black);
     cursor: pointer;
+}
+
+#logout-btn:hover {
+    border: 0.2rem solid var(--red-notifications);
 }
 
 #logout-btn:active {
