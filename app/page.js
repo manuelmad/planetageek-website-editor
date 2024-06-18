@@ -62,43 +62,40 @@ export default function Home() {
         const listRef2 = ref(storage, 'trends/trend2');
         const listRef3 = ref(storage, 'trends/trend3');
 
-        // listAll(listRef1)
-        // .then((res) => {
-        //   res.items.forEach((itemRef) => {
-        //     // All the items under listRef.
-        //     console.log('itemRef',itemRef);
-        //     console.log('itemRef',itemRef.name);
-        //     setImgName1(itemRef.name);
-        //     ref1 = ref(storage,`trends/trend1/${imgName1}`);
-        //   });
-        // }).catch((error) => {
-        //   // Uh-oh, an error occurred!
-        //   console.log('error',error);
-        // });
+        listAll(listRef1)
+        .then((res) => {
+          res.items.forEach((itemRef) => {
+            // All the items under listRef.
+            console.log('itemRef1',itemRef.name);
+            setImgName1(itemRef.name); // THIS IS NOT WORKING!!!
+            console.log('imgName1',imgName1);
+            ref1 = ref(storage,`trends/trend1/${imgName1}`);
+          });
+        }).catch((error) => {
+          console.log('error',error);
+        });
 
-        // listAll(listRef2)
-        // .then((res) => {
-        //   res.items.forEach((itemRef) => {
-        //     // All the items under listRef.
-        //     console.log('itemRef',itemRef);
-        //     setImgName2(itemRef.name);
-        //   });
-        // }).catch((error) => {
-        //   // Uh-oh, an error occurred!
-        //   console.log('error',error);
-        // });
+        listAll(listRef2)
+        .then((res) => {
+          res.items.forEach((itemRef) => {
+            // All the items under listRef.
+            console.log('itemRef2',itemRef.name);
+            setImgName2(itemRef.name);
+          });
+        }).catch((error) => {
+          console.log('error',error);
+        });
 
-        // listAll(listRef3)
-        // .then((res) => {
-        //   res.items.forEach((itemRef) => {
-        //     // All the items under listRef.
-        //     console.log('itemRef',itemRef);
-        //     setImgName3(itemRef.name);
-        //   });
-        // }).catch((error) => {
-        //   // Uh-oh, an error occurred!
-        //   console.log('error',error);
-        // });
+        listAll(listRef3)
+        .then((res) => {
+          res.items.forEach((itemRef) => {
+            // All the items under listRef.
+            console.log('itemRef3',itemRef.name);
+            setImgName3(itemRef.name);
+          });
+        }).catch((error) => {
+          console.log('error',error);
+        });
         
         getDownloadURL(ref(storage,`trends/trend1/trend1.png`))
         .then(async url => {

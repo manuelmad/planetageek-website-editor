@@ -12,6 +12,7 @@ footer {
     border-radius: 0.5rem;
     font-size: var(--md);
     border: none;
+    cursor: pointer;
 }
 
 #save_changes_btn:active {

@@ -39,6 +39,7 @@ header img {
     border-radius: 0.5rem;
     font-size: var(--md);
     border: none;
+    cursor: pointer;
 }
 
 #logout-btn:active {

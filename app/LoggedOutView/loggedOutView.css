@@ -39,6 +39,7 @@
     /* border: none; */
     border-radius: 0.5rem;
     background-color: var(--planeta-geek-celeste);
+    cursor: pointer;
 }
 
 #login_btn:active {
