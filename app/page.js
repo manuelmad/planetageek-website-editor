@@ -13,6 +13,10 @@ import { collection, onSnapshot, doc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 
+let ref1;
+let ref2;
+let ref3;
+
 export default function Home() {
   // States to the info in the website
   const [trendTitle1, setTrendTitle1] = useState("");
@@ -34,12 +38,55 @@ export default function Home() {
   const [displayTrends, setDisplayTrends] = useState({display:"none"});
   const [displayFooter, setDisplayFooter] = useState({display:"none"});
 
-  useEffect(()=> {
-    // Get the collection 'trends' from firebase
-    const trendsCollection = collection(db, 'trends');
+  // Get the collection 'trends' from firebase
+  const trendsCollection = collection(db, 'trends');
 
-    // Get a reference to the storage service, which is used to create references in your storage bucket
-    const storage = getStorage();
+  // Get a reference to the storage service, which is used to create references in your storage bucket
+  const storage = getStorage();
+
+  // Function to get the names of the images existing in Firebase Storage
+  const getImgsNames = () => {
+    // Getting the url of all folders that contain the images in firebasestorage
+    const listRef1 = ref(storage, 'trends/trend1');
+    const listRef2 = ref(storage, 'trends/trend2');
+    const listRef3 = ref(storage, 'trends/trend3');
+
+    listAll(listRef1)
+    .then((res) => {
+      res.items.forEach((itemRef) => {
+        // All the items under listRef.
+        setImgName1(itemRef.name);
+        ref1 = ref(storage,`trends/trend1/${itemRef.name}`);
+      });
+    }).catch((error) => {
+      console.log('error',error);
+    });
+
+    listAll(listRef2)
+    .then((res) => {
+      res.items.forEach((itemRef) => {
+        // All the items under listRef.
+        setImgName2(itemRef.name);
+        ref2 = ref(storage,`trends/trend2/${itemRef.name}`);
+      });
+    }).catch((error) => {
+      console.log('error',error);
+    });
+
+    listAll(listRef3)
+    .then((res) => {
+      res.items.forEach((itemRef) => {
+        // All the items under listRef.
+        setImgName3(itemRef.name);
+        ref3 = ref(storage,`trends/trend3/${itemRef.name}`);
+      });
+    }).catch((error) => {
+      console.log('error',error);
+    });
+
+  }
+
+  useEffect(()=> {
 
     // Listen to the current collection and get changes everytime a document is updated, created or deleted to update the trend info
     onSnapshot(trendsCollection, (snapshot)=>{
@@ -56,48 +103,11 @@ export default function Home() {
         setTrendText2(data[1].data().text);
         setTrendText3(data[2].data().text);
 
-        // Getting the url of all images in firebasestorage and updating the corresponding state, as well as sending that url to fibase database
-        let ref1;
-        const listRef1 = ref(storage, 'trends/trend1');
-        const listRef2 = ref(storage, 'trends/trend2');
-        const listRef3 = ref(storage, 'trends/trend3');
-
-        listAll(listRef1)
-        .then((res) => {
-          res.items.forEach((itemRef) => {
-            // All the items under listRef.
-            console.log('itemRef1',itemRef.name);
-            setImgName1(itemRef.name); // THIS IS NOT WORKING!!!
-            console.log('imgName1',imgName1);
-            ref1 = ref(storage,`trends/trend1/${imgName1}`);
-          });
-        }).catch((error) => {
-          console.log('error',error);
-        });
-
-        listAll(listRef2)
-        .then((res) => {
-          res.items.forEach((itemRef) => {
-            // All the items under listRef.
-            console.log('itemRef2',itemRef.name);
-            setImgName2(itemRef.name);
-          });
-        }).catch((error) => {
-          console.log('error',error);
-        });
-
-        listAll(listRef3)
-        .then((res) => {
-          res.items.forEach((itemRef) => {
-            // All the items under listRef.
-            console.log('itemRef3',itemRef.name);
-            setImgName3(itemRef.name);
-          });
-        }).catch((error) => {
-          console.log('error',error);
-        });
+        // Getting images' names
+        getImgsNames();
         
-        getDownloadURL(ref(storage,`trends/trend1/trend1.png`))
+        // Getting the url of all images in firebasestorage and updating the corresponding state, as well as sending that url to fibase database
+        getDownloadURL(ref1)
         .then(async url => {
           setImgUrl1(url);
           // console.log('parent',ref1.parent);
@@ -108,7 +118,7 @@ export default function Home() {
         })
         .catch((error) => {console.log('error:', error)});
         
-        getDownloadURL(ref(storage, 'trends/trend2/trend2.png'))
+        getDownloadURL(ref2)
         .then(async url => {
           setImgUrl2(url);
           await updateDoc(doc(db, 'trends', 'trend2'), {
@@ -117,7 +127,7 @@ export default function Home() {
         })
         .catch((error) => {console.log('error:', error)});
         
-        getDownloadURL(ref(storage, 'trends/trend3/trend3.png'))
+        getDownloadURL(ref3)
         .then(async url => {
           setImgUrl3(url);
           await updateDoc(doc(db, 'trends', 'trend3'), {
@@ -143,6 +153,9 @@ export default function Home() {
         setDisplayLoggedOutView({display:"flex"});
       }
     })
+
+    // Getting images' names
+    getImgsNames();
 
   },[]);
 
