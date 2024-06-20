@@ -2,6 +2,8 @@
 import Image from "next/image";
 import './trends.css';
 
+let currentImg;
+
 export default function Trends({
     displayTrends,
     setDisplayTrends,
@@ -23,7 +25,31 @@ export default function Trends({
     setImgUrl2,
     imgUrl3,
     setImgUrl3,
+    setDisplayModal,
+    currentImg,
+    setCurrentImg
 }) {
+
+    const openModal1 = () => {
+        setDisplayModal({display:"block"});
+        document.querySelector("#img_input").value = "";
+        setCurrentImg(1);
+        console.log(currentImg);
+    }
+
+    const openModal2 = () => {
+        setDisplayModal({display:"block"});
+        document.querySelector("#img_input").value = "";
+        setCurrentImg(2);
+        console.log(currentImg);
+    }
+
+    const openModal3 = () => {
+        setDisplayModal({display:"block"});
+        document.querySelector("#img_input").value = "";
+        setCurrentImg(3);
+        console.log(currentImg);
+    }
 
     return(
         <section className="trends" id="trends" style={displayTrends}>
@@ -34,7 +60,7 @@ export default function Trends({
             <div className="trending-articles__container">
                 <article>
                     <div>
-                        <div>
+                        <div onClick={openModal1}>
                             <Image
                                 src={imgUrl1 || '/public/next.svg'}
                                 alt="trend1 img"
@@ -50,7 +76,7 @@ export default function Trends({
                 </article>
                 <article>
                     <div>
-                        <div>
+                        <div onClick={openModal2}>
                             <Image
                                 src={imgUrl2 || '/public/next.svg'}
                                 alt="trend2 img"
@@ -66,7 +92,7 @@ export default function Trends({
                 </article>
                 <article>
                     <div>
-                        <div>
+                        <div onClick={openModal3}>
                             <Image
                                 src={imgUrl3 || '/public/next.svg'}
                                 alt="trend3 img"
