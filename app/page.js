@@ -4,6 +4,7 @@ import Header from "./LoggedInHeader/LoggedInHeader";
 import Trends from "./Trends/Trends";
 import LoggedOutView from "./LoggedOutView/LoggedOutView";
 import Footer from "./SaveChangesFooter/SaveChangesFooter";
+import UploadImgModal from "./UploadImgModal/UploadImgModal";
 
 import { useState } from "react";
 import { useEffect } from "react";
@@ -37,6 +38,7 @@ export default function Home() {
   const [displayHeader, setDisplayHeader] = useState({display:"none"});
   const [displayTrends, setDisplayTrends] = useState({display:"none"});
   const [displayFooter, setDisplayFooter] = useState({display:"none"});
+  const [displayModal, setDisplayModal] = useState({display:"none"});
 
   // Get the collection 'trends' from firebase
   const trendsCollection = collection(db, 'trends');
@@ -203,6 +205,10 @@ export default function Home() {
       <Footer
         displayFooter={displayFooter}
         setDisplayFooter={setDisplayFooter}
+      />
+      <UploadImgModal
+        displayModal={displayModal}
+        setDisplayModal={setDisplayModal}
       />
     </main>
   );

@@ -15,6 +15,7 @@ html {
   --header-font-color: rgb(117, 105, 105);
   --nav-left-borders: rgb(24, 24, 24);
   --background-black: #282828;
+  --background-shadow: rgba(32,35,41,.8);
   --background-nav: rgb(40, 40, 40);
   --background-article: #292e38;
   --background-sections: #181c23;
