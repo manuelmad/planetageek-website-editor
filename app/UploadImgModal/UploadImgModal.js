@@ -145,6 +145,7 @@ export default function UploadImgModal({
         const dropbox = document.getElementById("dropBox");
         const img_input = document.getElementById("img_input");
         const input = img_input.files;
+        console.log(input);
         
         //Get the uploaded file
         let file = input[0];
@@ -160,10 +161,64 @@ export default function UploadImgModal({
         img.src = objectURL;
     }
 
+    const dragEnter = (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    function dragOver(e) {
+        e.stopPropagation();
+        e.preventDefault();
+    }
+
+    function drop(e) {
+        e.stopPropagation();
+        e.preventDefault();
+      
+        const dt = e.dataTransfer;
+        const files = dt.files;
+    
+        if(!files.length) return
+        
+        //Get the dropped file
+        let file = files[0];
+        // console.log(file);
+    
+        //Create the local url
+        const objectURL = URL.createObjectURL(file);
+        // console.log(objectURL);
+
+        //Access the input file
+        const img_input = document.getElementById("img_input");
+        
+        // Create a new File object with all the information of the img dropped in dropbox
+        const myFile = new File([file], file.name, {
+            type: file.type,
+            lastModified: file.lastModified,
+            lastModifiedDate: file.lastModifiedDate,
+            size: file.size,
+            webkitRelativePath: file.webkitRelativePath
+        });
+
+        // console.log(myFile);
+    
+        // Create a DataTransfer with the new File object to set an identical FileList in the input file, ready to be uploaded to storage
+        const dataTransfer = new DataTransfer();
+        dataTransfer.items.add(myFile);
+        img_input.files = dataTransfer.files;
+        
+        // Preview the img dropped
+        const dropbox = document.getElementById("dropBox");
+        dropbox.innerHTML = "";
+        const img = document.createElement('img');
+        dropbox.appendChild(img);
+        img.src = objectURL;
+    }
+
     return(
         <div style={displayModal} className='modal-container'>
             <div className='modal'>
-                <p id="dropBox">
+                <p id="dropBox" onDragEnter={dragEnter} onDragOver={dragOver} onDrop={drop}>
                     Arrastre la imagen aquí o seleccione el archivo usando el botón de abajo
                 </p>
                 <p className='input-file__container'>
