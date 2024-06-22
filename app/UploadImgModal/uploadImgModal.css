@@ -25,6 +25,11 @@
     align-content: center;
 }
 
+#dropBox img {
+    width: 100%;
+    height: auto;
+}
+
 .input-file__container, .uploadimg-btn__container, .cancel-uploadimg__container {
     margin-top: 2rem;
     text-align: center;

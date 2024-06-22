@@ -31,6 +31,8 @@ export default function Trends({
 }) {
 
     const openModal1 = () => {
+        const dropbox = document.getElementById("dropBox");
+        dropbox.innerHTML = "";
         setDisplayModal({display:"block"});
         document.querySelector("#img_input").value = "";
         setCurrentImg(1);
@@ -38,6 +40,8 @@ export default function Trends({
     }
 
     const openModal2 = () => {
+        const dropbox = document.getElementById("dropBox");
+        dropbox.innerHTML = "";
         setDisplayModal({display:"block"});
         document.querySelector("#img_input").value = "";
         setCurrentImg(2);
@@ -45,6 +49,8 @@ export default function Trends({
     }
 
     const openModal3 = () => {
+        const dropbox = document.getElementById("dropBox");
+        dropbox.innerHTML = "";
         setDisplayModal({display:"block"});
         document.querySelector("#img_input").value = "";
         setCurrentImg(3);

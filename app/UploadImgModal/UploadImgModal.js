@@ -141,6 +141,25 @@ export default function UploadImgModal({
         setDisplayModal({display:"none"});
     }
 
+    const prewievImg = () => {
+        const dropbox = document.getElementById("dropBox");
+        const img_input = document.getElementById("img_input");
+        const input = img_input.files;
+        
+        //Get the uploaded file
+        let file = input[0];
+
+        //Create the local url
+        const objectURL = URL.createObjectURL(file);
+        // console.log(objectURL);
+
+        // Add img label, with the local url in src, as a child of dropbox
+        dropbox.innerHTML = "";
+        const img = document.createElement('img');
+        dropbox.appendChild(img);
+        img.src = objectURL;
+    }
+
     return(
         <div style={displayModal} className='modal-container'>
             <div className='modal'>
@@ -148,7 +167,7 @@ export default function UploadImgModal({
                     Arrastre la imagen aquí o seleccione el archivo usando el botón de abajo
                 </p>
                 <p className='input-file__container'>
-                    <input id="img_input" type="file" accept="image/*" />
+                    <input onChange={prewievImg} id="img_input" type="file" accept="image/*" />
                 </p>
                 <p className='uploadimg-btn__container'>
                     <button onClick={uploadImg} id='uploadimg_btn'>Subir Foto</button>
