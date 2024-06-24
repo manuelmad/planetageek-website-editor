@@ -25,7 +25,7 @@ export default function LoggedOutView({
                 setDisplayTrends({display:"block"});
                 setDisplayTrends({display:"block"});
                 setDisplayFooter({display:"block"});
-                console.log('Bienvenido '+ user);
+                console.log('Bienvenido '+ email);
             } else {
                 console.log('el usuario no está registrado');
             }

@@ -38,7 +38,7 @@ export default function Header({
                 <p className="header-title-container">Website Editor</p>
             </section>
             <section className="logout-btn-container">
-                <button id="logout-btn" onClick={logOut}>Log out</button>
+                <button id="logout-btn" onClick={logOut}>Log Out</button>
             </section>
         </header>
     );

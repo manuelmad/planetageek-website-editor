@@ -225,7 +225,7 @@ export default function UploadImgModal({
                     <input onChange={prewievImg} id="img_input" type="file" accept="image/*" />
                 </p>
                 <p className='uploadimg-btn__container'>
-                    <button onClick={uploadImg} id='uploadimg_btn'>Subir Foto</button>
+                    <button onClick={uploadImg} id='uploadimg_btn'>Aplicar Cambio de Imagen</button>
                 </p>
                 <p className='cancel-uploadimg__container'>
                     <button onClick={closeModal} id='cancel_uploadimg_btn'>Cancelar</button>

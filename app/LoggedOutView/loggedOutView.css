@@ -60,7 +60,7 @@
 }
 
 #login_btn {
-    width: 10rem;
+    width: 15rem;
     height: 4rem;
     margin-top: 3rem;
     /* border: none; */
@@ -70,10 +70,11 @@
 }
 
 #login_btn:hover {
-    background-color: var(--white);
-    border: 0.2rem solid var(--planeta-geek-green-shadow);
+    background-color: var(--planeta-geek-shadow-celeste);
+    color: var(--white);
 }
 
 #login_btn:active {
     background-color: var(--planeta-geek-green);
+    color: var(--black);
 }

@@ -12,6 +12,7 @@ html {
 :root {
   --white: #FFFFFF;
   --black: #000000;
+  --header-footer-background: #252C5A;
   --header-font-color: rgb(117, 105, 105);
   --nav-left-borders: rgb(24, 24, 24);
   --background-black: #282828;

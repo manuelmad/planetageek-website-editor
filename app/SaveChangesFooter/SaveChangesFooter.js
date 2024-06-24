@@ -35,7 +35,7 @@ export default function Footer({
     return(
         <footer style={displayFooter}>
             <section>
-                <button id='save_changes_btn' onClick={sendAllinfo}>Aplicar Cambios</button>
+                <button id='save_changes_btn' onClick={sendAllinfo}>Aplicar Cambios de Textos</button>
             </section>
         </footer>
     );

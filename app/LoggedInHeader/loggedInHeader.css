@@ -3,7 +3,7 @@ header {
     height: 8rem;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: var(--header-font-color);
+    background-color: var(--header-footer-background);
 }
 
 header img {
@@ -24,6 +24,7 @@ header img {
     align-items: center;
     font-size: var(--xlg);
     height: 100%;
+    color: var(--white);
 }
 
 .logout-btn-container {
@@ -38,7 +39,7 @@ header img {
     height: 5rem;
     border-radius: 0.5rem;
     font-size: var(--md);
-    border: 0.2rem solid var(--black);
+    border: none;
     cursor: pointer;
 }
 
