@@ -21,7 +21,7 @@ export default function Header({
             console.log('Se ha cerrado sesión exitosamente');
         }).catch((error) => {
             // An error happened.
-            console.log(error);
+            console.log('error on signOut: ', error);
         });
     }
     return(

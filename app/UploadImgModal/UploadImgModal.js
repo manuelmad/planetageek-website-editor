@@ -145,7 +145,7 @@ export default function UploadImgModal({
         const dropbox = document.getElementById("dropBox");
         const img_input = document.getElementById("img_input");
         const input = img_input.files;
-        console.log(input);
+        // console.log(input);
         
         //Get the uploaded file
         let file = input[0];

@@ -36,7 +36,7 @@ export default function Trends({
         setDisplayModal({display:"block"});
         document.querySelector("#img_input").value = "";
         setCurrentImg(1);
-        console.log(currentImg);
+        // console.log(currentImg);
     }
 
     const openModal2 = () => {
@@ -45,7 +45,7 @@ export default function Trends({
         setDisplayModal({display:"block"});
         document.querySelector("#img_input").value = "";
         setCurrentImg(2);
-        console.log(currentImg);
+        // console.log(currentImg);
     }
 
     const openModal3 = () => {
@@ -54,7 +54,7 @@ export default function Trends({
         setDisplayModal({display:"block"});
         document.querySelector("#img_input").value = "";
         setCurrentImg(3);
-        console.log(currentImg);
+        // console.log(currentImg);
     }
 
     return(
