@@ -19,6 +19,7 @@
 
 .user-login-container p {
     margin-top: 1rem;
+    align-content: center;
 }
 
 .user-login-container input {
@@ -26,6 +27,32 @@
     height: 4rem;
     border-radius: 0.5rem;
     padding: 0.2rem;
+    font-size: var(--md);
+}
+
+.input-password-container {
+    position: relative;
+}
+
+.bi-eye {
+    margin-left: 1rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    left: 30rem;
+}
+
+.bi-eye-slash {
+    display: none;
+    margin-left: 1rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    left: 30rem;
 }
 
 .login-btn-container {
@@ -40,6 +67,11 @@
     border-radius: 0.5rem;
     background-color: var(--planeta-geek-celeste);
     cursor: pointer;
+}
+
+#login_btn:hover {
+    background-color: var(--white);
+    border: 0.2rem solid var(--planeta-geek-green-shadow);
 }
 
 #login_btn:active {
