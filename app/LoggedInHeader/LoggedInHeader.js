@@ -5,7 +5,6 @@ import { getAuth, signOut } from "firebase/auth";
 export default function Header({
     displayHeader,
     setDisplayHeader,
-    displayTrends,
     setDisplayTrends,
     setDisplayLoggedOutView,
     setDisplayFooter
@@ -18,6 +17,7 @@ export default function Header({
             setDisplayTrends({display:"none"});
             setDisplayFooter({display:"none"});
             setDisplayLoggedOutView({display:"flex"});
+            document.getElementById('user_password').value = '';
             console.log('Se ha cerrado sesión exitosamente');
         }).catch((error) => {
             // An error happened.

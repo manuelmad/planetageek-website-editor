@@ -5,32 +5,33 @@ import { doc, updateDoc } from "firebase/firestore";
 
 export default function Footer({
     displayFooter,
-    setDisplayFooter
+    setDisplayFooter,
 }) {
     const sendAllinfo = () => {
-        const trend1_h3 = document.querySelector('.trend1-h3').innerHTML;
-        const trend1_text = document.querySelector('.trend1-text').innerHTML;
+        const trend1_h3 = document.querySelector('.trend1-h3').innerHTML.replaceAll('&lt;br&gt;', '<br>');
+        const trend1_text = document.querySelector('.trend1-text').innerHTML.replaceAll('&lt;br&gt;', '<br>');
         // console.log(trend1_h3);
         updateDoc(doc(db, 'trends', 'trend1'), {
             title: trend1_h3,
             text: trend1_text
         });
 
-        const trend2_h3 = document.querySelector('.trend2-h3').innerHTML;
-        const trend2_text = document.querySelector('.trend2-text').innerHTML;
+        const trend2_h3 = document.querySelector('.trend2-h3').innerHTML.replaceAll('&lt;br&gt;', '<br>');
+        const trend2_text = document.querySelector('.trend2-text').innerHTML.replaceAll('&lt;br&gt;', '<br>');
         // console.log(trend1_h3);
         updateDoc(doc(db, 'trends', 'trend2'), {
             title: trend2_h3,
             text: trend2_text
         });
 
-        const trend3_h3 = document.querySelector('.trend3-h3').innerHTML;
-        const trend3_text = document.querySelector('.trend3-text').innerHTML;
+        const trend3_h3 = document.querySelector('.trend3-h3').innerHTML.replaceAll('&lt;br&gt;', '<br>');
+        const trend3_text = document.querySelector('.trend3-text').innerHTML.replaceAll('&lt;br&gt;', '<br>');
         // console.log(trend1_h3);
         updateDoc(doc(db, 'trends', 'trend3'), {
             title: trend3_h3,
             text: trend3_text
         });
+
     }
     return(
         <footer style={displayFooter}>

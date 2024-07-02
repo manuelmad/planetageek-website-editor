@@ -1,4 +1,4 @@
-/* TENDENCIAS */
+/* TRENDS */
 
 .trends .title-container h2 {
     background-color: var(--planeta-geek-celeste);
@@ -8,7 +8,6 @@
     justify-content: center;
     align-items: center;
     padding: 0 2rem 0;
-    /* position: relative; */
 }
 
 .trends .title-container h2:before {
@@ -69,6 +68,7 @@
 
 .trending-articles__container p {
     width: 100%;
+    min-height: 10rem;
     color: var(--white);
     font-weight: 300;
     margin-top: 1rem;
@@ -98,20 +98,20 @@
       justify-content: center;
       margin: 1rem auto 0;
   }
-  }
+}
   
 @media (min-width: 1060px) {
-.trends {
-    padding-left: 5rem;
-    padding-right: 5rem;
-}
+    .trends {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
 
-.trends .title-container h2:before {
-    left: 6.5rem;
-}
+    .trends .title-container h2:before {
+        left: 6.5rem;
+    }
 
-.trending-articles__container {
-    width: 96rem;
-    grid-template-columns: 1fr 1fr 1fr;
-}
+    .trending-articles__container {
+        width: 96rem;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

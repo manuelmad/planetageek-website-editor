@@ -1,32 +1,12 @@
-// 'use client';
 import Image from "next/image";
 import './trends.css';
 
-let currentImg;
-
 export default function Trends({
     displayTrends,
-    setDisplayTrends,
-    trendTitle1,
-    setTrendTitle1,
-    trendTitle2,
-    setTrendTitle2,
-    trendTitle3,
-    setTrendTitle3,
-    trendText1,
-    setTrendText1,
-    trendText2,
-    setTrendText2,
-    trendText3,
-    setTrendText3,
     imgUrl1,
-    setImgUrl1,
     imgUrl2,
-    setImgUrl2,
     imgUrl3,
-    setImgUrl3,
     setDisplayModal,
-    currentImg,
     setCurrentImg
 }) {
 
@@ -57,6 +37,25 @@ export default function Trends({
         // console.log(currentImg);
     }
 
+
+    // Function to insert a <br> when user press enter key in any editable area
+    const addBr = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            const br = document.createElement("br");
+            
+            let range, html;
+            if (window.getSelection && window.getSelection().getRangeAt) {
+                range = window.getSelection().getRangeAt(0);
+                range.insertNode(br);
+            } else if (document.selection && document.selection.createRange) {
+                range = document.selection.createRange();
+                html = (br.nodeType == 3) ? br.data : br.outerHTML;
+                range.pasteHTML(html);
+            }
+        }
+    }
+
     return(
         <section className="trends" id="trends" style={displayTrends}>
             <div className="title-container">
@@ -75,8 +74,8 @@ export default function Trends({
                             />
                         </div>
                         <div>
-                            <h3 contentEditable suppressContentEditableWarning className="trend1-h3">{trendTitle1}</h3>
-                            <p contentEditable suppressContentEditableWarning className="trend1-text">{trendText1}</p>
+                            <h3 contentEditable="plaintext-only" suppressContentEditableWarning className="trend1-h3" onKeyDown={addBr} id="h3_1"></h3>
+                            <p contentEditable="plaintext-only" suppressContentEditableWarning className="trend1-text" onKeyDown={addBr} id="p1"></p>
                         </div>
                     </div>
                 </article>
@@ -91,8 +90,8 @@ export default function Trends({
                             />
                         </div>
                         <div>
-                            <h3 contentEditable suppressContentEditableWarning className="trend2-h3">{trendTitle2}</h3>
-                            <p contentEditable suppressContentEditableWarning className="trend2-text">{trendText2}</p>
+                            <h3 contentEditable="plaintext-only" suppressContentEditableWarning className="trend2-h3" onKeyDown={addBr} id="h3_2"></h3>
+                            <p contentEditable="plaintext-only" suppressContentEditableWarning className="trend2-text" onKeyDown={addBr} id="p2"></p>
                         </div>
                     </div>
                 </article>
@@ -107,8 +106,8 @@ export default function Trends({
                             />
                         </div>
                         <div>
-                            <h3 contentEditable suppressContentEditableWarning className="trend3-h3">{trendTitle3}</h3>
-                            <p contentEditable suppressContentEditableWarning className="trend3-text">{trendText3}</p>
+                            <h3 contentEditable="plaintext-only" suppressContentEditableWarning className="trend3-h3" onKeyDown={addBr} id="h3_3"></h3>
+                            <p contentEditable="plaintext-only" suppressContentEditableWarning className="trend3-text" onKeyDown={addBr} id="p3"></p>
                         </div>
                     </div>
                 </article>

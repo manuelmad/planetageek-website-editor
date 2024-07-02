@@ -5,12 +5,6 @@ import { doc, updateDoc } from "firebase/firestore";
 import { getStorage, ref, deleteObject, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 
 export default function UploadImgModal({
-    imgName1,
-    imgName2,
-    imgName3,
-    setImgName1,
-    setImgName2,
-    setImgName3,
     setImgUrl1,
     setImgUrl2,
     setImgUrl3,
