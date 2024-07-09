@@ -1,5 +1,5 @@
 .logged-out-container {
-    width: 30rem;
+    width: 25rem;
     height: 100vh;
     margin: 0 auto;
     font-size: var(--xlg);
@@ -41,7 +41,7 @@
     cursor: pointer;
     position: absolute;
     top: 1rem;
-    left: 30rem;
+    left: 24.5rem;
 }
 
 .bi-eye-slash {
@@ -52,7 +52,7 @@
     cursor: pointer;
     position: absolute;
     top: 1rem;
-    left: 30rem;
+    left: 24.5rem;
 }
 
 .login-btn-container {
@@ -76,4 +76,18 @@
 #login_btn:active {
     background-color: var(--planeta-geek-green);
     color: var(--black);
+}
+
+@media (min-width: 700px) {
+    .logged-out-container {
+        width: 30rem;
+    }
+
+    .bi-eye {
+        left: 30rem;
+    }
+    
+    .bi-eye-slash {
+        left: 30rem;
+    }
 }
